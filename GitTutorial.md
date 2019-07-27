@@ -33,4 +33,6 @@ git push -u origin master
 
 1. `git clone https://github.com/username/respname.git`
 
-2. 完成之前提交新的更改的操作
+2. 如果仓库存在，则只需要 `Pull` 即可
+
+3. 完成之前提交新的更改的操作
