@@ -1,3 +1,3 @@
 # Git Install and Config
 
-Test
+## 配置全局变量
