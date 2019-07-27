@@ -28,3 +28,9 @@ git push -u origin master
 3. 在消息框中添加提交说明，然后 `Ctrl + enter` 提交
 
 4. 点击 `Push` 将代码推送到云端
+
+## 在另一台计算机上修改代码
+
+1. `git clone https://github.com/username/respname.git`
+
+2. 完成之前提交新的更改的操作
