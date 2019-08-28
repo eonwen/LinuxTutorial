@@ -16,11 +16,22 @@
 ###### 这是 <h6> 六级标题
 ```
 
+# 这是一级标题
+## 这是二级标题
+### 这是三级标题
+#### 这是四级标题
+##### 这是五级标题
+###### 这是六级标题
+
 如果你想要给你的标题添加 `id` 或者 `class`，请在标题最后添加 `{#id .class1 .class2}`。例如：  
 ```markdown
 # 这个标题拥有 1 个 id {#my_id}
 # 这个标题有 2 个 classes {.class1 .class2}
 ```
+
+# 这个标题拥有 1 个 id {#my_id}
+# 这个标题有 2 个 classes {.class1 .class2}
+
 > 这是一个 MPE 扩展的特性。  
 
 ### 强调
@@ -36,6 +47,16 @@ _你也 **组合** 这些符号_
 ~~这个文字将会被横线删除~~
 ```
 
+*这会是 斜体 的文字*
+_这会是 斜体 的文字_
+
+**这会是 粗体 的文字**
+__这会是 粗体 的文字__
+
+_你也 **组合** 这些符号_
+
+~~这个文字将会被横线删除~~
+
 ### 列表
 #### 无序列表
 ```markdown
@@ -45,6 +66,11 @@ _你也 **组合** 这些符号_
   * Item 2b
 ```
 
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
 #### 有序列表
 ```markdown
 1. Item 1
@@ -53,6 +79,12 @@ _你也 **组合** 这些符号_
    1. Item 3a
    1. Item 3b
 ```
+
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
 
 ### 添加图片  
 ```markdown
@@ -75,6 +107,11 @@ http://github.com - 自动生成！
 
 ```
 
+正如 Kanye West 所说：
+
+> We're living the future so
+> the present is our past.
+
 ### 分割线  
 ```markdown
 如下，三个或者更多的
@@ -92,11 +129,28 @@ ___
 下划线
 ```
 
+如下，三个或者更多的
+
+---
+
+连字符
+
+***
+
+星号
+
+___
+
+下划线
+
 ### 行内代码
 ```markdown  
 我觉得你应该在这里使用
 `<addr>` 才对。
 ```
+
+我觉得你应该在这里使用
+`<addr>` 才对。
 
 ### 代码块
 你可以在你的代码上面和下面添加 <code>\`\`\`</code> 来表示代码块。
@@ -144,8 +198,11 @@ puts markdown.to_html
 
 将会得到下面的显示效果：
 
-![screen shot 2017-07-14 at 1 20 27 am](https://user-images.githubusercontent.com/1908863/28200587-a8582b0a-6832-11e7-83a7-6c3bb011322f.png)
-
+```javascript {.line-numbers}
+    function add(x, y) {
+      return x + y
+    }
+```
 
 ##### 高亮代码行数
 
@@ -256,7 +313,24 @@ CriticMarkup 缺省是禁用的，你可以通过插件设置来启动它。
 这一特性基于 [flowchart.js](http://flowchart.js.org/)。
 * `flow` 代码快中的内容将会被 [flowchart.js](http://flowchart.js.org/) 渲染。
 
-![screenshot from 2017-11-25 21-43-02](https://user-images.githubusercontent.com/1908863/33236942-aa809c1c-d229-11e7-9c4b-9a680fd852ed.png)
+```flow
+st=>start: 法的概念争议
+cond1=>condition: 是否与道德有关
+op1=>operation: 实证主义法学
+op2=>operation: 非实证主义法学
+cond2=>condition: 首要要素
+op3=>operation: 法社会学
+op4=>operation: 法现实主义
+sub1=>subroutine: My Subroutine 
+cond=>condition: Yes or No?:>http://www.google.com io=>inputoutput: catch something... 
+e=>end:>http://www.google.com 
+
+st->cond1
+cond1(yes)->op2
+cond1(no)->op1->cond2(yes)->op3
+cond1(no)->op1->cond2(yes)->op4
+
+```
 
 ## Sequence Diagrams
 
@@ -306,6 +380,31 @@ Markdown Preview Enhanced 使用 [Viz.js](https://github.com/mdaines/viz.js) 来
 - 你可以通过 `{engine="..."}` 来选择不同的渲染引擎。 引擎 `circo`，`dot`，`neato`，`osage`，或者 `twopi` 是被支持的。默认下，使用 `dot` 引擎。
 
 ![screen shot 2018-03-18 at 3 18 17 pm](https://user-images.githubusercontent.com/1908863/37570596-a565306e-2abf-11e8-8904-d73306f675ec.png)
+
+```viz{engine="dot"}
+digraph G {
+  法与道德->关系
+  关系->分离
+  关系->联结
+  分离->法实证主义
+  联结->非实证主义
+  法实证主义->定义要素
+  定义要素->社会实效
+  定义要素->权威制定
+  社会实效->法社会学
+  社会实效->法现实主义
+  权威制定->分析主义法学
+  分析主义法学->不接受道德
+  分析主义法学->接受道德
+  不接受道德->排他性法律实证主义
+  接受道德->包容型法律实证主义
+  非实证主义->唯一制定要素
+  唯一制定要素->传统自然法学
+  非实证主义->三者结合
+  三者结合->第三条道路
+
+}
+```
 
 ## Vega 和 Vega-lite
 Markdown Preview Enhanced 支持 [vega](https://vega.github.io/vega/) 以及 [vega-lite](https://vega.github.io/vega-lite/) 的**静态**图像.
