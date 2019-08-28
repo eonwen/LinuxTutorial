@@ -1,5 +1,5 @@
 # Markdown 基本要素
-这篇文件意在简要介绍 [GitHub Flavored Markdown 写作](https://guides.github.com/features/mastering-markdown/)。      
+这篇文件意在简要介绍 [GitHub Flavored Markdown 写作](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)。      
 
 ## 什么是 Markdown?  
 `Markdown` 是一种文本格式。你可以用它来控制文档的显示。使用 markdown，你可以创建粗体的文字，斜体的文字，添加图片，并且创建列表 等等。基本上来讲，Markdown 就是普通的文字加上 `#` 或者 `*` 等符号。  
