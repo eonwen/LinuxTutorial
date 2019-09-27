@@ -14,10 +14,15 @@ body {
 blockquote {
     margin-inline-start: 0px;
     margin-inline-end: 40px;
+    margin-block-start: 0.5em;
 }
 ul {
     padding-inline-start: 20px;
 }
+li > p {
+    margin-block-end: 0;
+}
+
 ```
 
 2. 修改 `conf.py`
