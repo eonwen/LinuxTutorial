@@ -3,6 +3,8 @@
 ```bash
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak # 备份本地 yum 源
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo # 获取阿里 yum 源配置文件
+mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 yum makecache # 更新缓存
 yum -y update # 更新软件
 ```
@@ -280,6 +282,44 @@ server {
 }
 ```
 
+# 安装 `mangodb`
+
+1. 配置包管理系统
+
+```bash
+# 创建 /etc/yum.repos.d/mongodb-org-4.0.repo
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+```
+
+2. yum 安装
+
+```bash
+yum install -y mongodb-org
+```
+
+3. 开机自启动
+
+```bash
+systemctl start mongodb.server
+systemctl enable mongodb.server
+```
+
+4. 创建用户
+
+```mongo
+use admin
+db.createUser({
+    user:"eonwen", pwd:"****",roles:[
+        {role:"readWriteAnyDatabase", db:"admin"},
+        {role:"userAdminAnyDatabase", db:"admin"}
+    ]
+})
+```
 
 (centos查看系统/硬件信息及运维常用命令)[https://blog.csdn.net/zcyygyl/article/details/102504311]
 (如何在 CentOS 7 中安装、配置和安全加固 FTP 服务)[https://linux.cn/article-8527-1.html?pr]
