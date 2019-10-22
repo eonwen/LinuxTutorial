@@ -321,5 +321,8 @@ db.createUser({
 })
 ```
 
+(关于Linux 环境下Anaconda需要root权限的各种问题总结与解决)[https://blog.csdn.net/rainmaple20186/article/details/80664828]
+(Centos7安装Miniconda及配置jupyter)[https://blog.51cto.com/loufeng/2342003]
+(anaconda镜像不要再用清华的了)[https://blog.csdn.net/ddonking/article/details/82698151]
 (centos查看系统/硬件信息及运维常用命令)[https://blog.csdn.net/zcyygyl/article/details/102504311]
 (如何在 CentOS 7 中安装、配置和安全加固 FTP 服务)[https://linux.cn/article-8527-1.html?pr]
