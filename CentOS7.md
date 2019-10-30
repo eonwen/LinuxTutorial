@@ -88,6 +88,7 @@ yum install libffi-devel -y
 yum install zlib zlib-devel -y
 yum install openssl-devel -y
 yum install sqlite-devel -y
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel gcc kernel-devel kenel-headers make bzip2 gcc-c++ zlib zlib-devel libffi-devel
 ```
 
 2. 编译安装
@@ -191,6 +192,13 @@ systemctl restart vsftpd
 ```
 
 # 安装 `jupyter notebook`
+
+0. 安装插件
+
+```bash
+python3 -m pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+```
 
 1. 生成登陆密码
 
@@ -320,6 +328,48 @@ db.createUser({
     ]
 })
 ```
+
+## neo4j 安装配置
+
+1. 安装
+
+```bash
+
+```
+
+2. 配置 neo4j
+
+```
+dbms.connector.bolt.listen_address=0.0.0.0:7687
+dbms.active_database=importData
+```
+
+3. 开放数据库端口
+
+```
+firewall-cmd --zone=public --permanent --add-port=7687/tcp
+firewall-cmd --zone=public --permanent --add-service=http
+firewall-cmd --reload
+```
+
+配置 nginx
+
+```bash
+location /neo4j {
+        proxy_pass http://127.0.0.1:7474/browser;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $http_host;
+        proxy_http_version 1.1;
+        proxy_redirect off;
+        proxy_buffering off;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 86400;
+}
+```
+
+
 
 (关于Linux 环境下Anaconda需要root权限的各种问题总结与解决)[https://blog.csdn.net/rainmaple20186/article/details/80664828]
 (Centos7安装Miniconda及配置jupyter)[https://blog.51cto.com/loufeng/2342003]
